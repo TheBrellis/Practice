@@ -12,10 +12,7 @@ app.use(express.static('public'));
 
 app.use('/', routes);
 
-// Sync sequelize models then start Express app
-// =============================================
-db.sequelize.sync().then(() => {
-    app.listen(PORT, () => {
-        console.log(`App listening on PORT ${PORT} and process is PID ${process.pid}`);
-    });
+
+app.listen(PORT, () => {
+    console.log(`App listening on PORT ${PORT} and process is PID ${process.pid}`);
 });

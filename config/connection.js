@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const sequelize = require("sequelize");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -16,4 +17,4 @@ connection.connect((err) => {
     console.log("Database connected!");
 });
 
-module.exports = connection
+module.exports = sequelize;

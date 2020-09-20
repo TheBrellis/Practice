@@ -1,5 +1,6 @@
 const dotenv = require('dotenv').config();
 const express = require('express');
+const orm = require('./config/orm');
 const htmlRoutes = require('./routes/html-routes');
 
 const app = express();
@@ -10,6 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.use("/", htmlRoutes);
+
+orm.selectAll("projects", (result) => {
+    console.log(result)
+})
+
+
 
 
 app.listen(PORT, () => {
